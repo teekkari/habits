@@ -1,5 +1,6 @@
 import React from 'react';
 import HabitsView from './habitsview/HabitsView.js';
+import NewHabitForm from './habitsview/NewForm.js';
 import './App.css';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <HabitsView />
       </div>
       <div id="info-view">
-        <p>Hello this is where u see cool stats</p>
+        <NewHabitForm />
       </div>
     </div>
   );

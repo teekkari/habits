@@ -21,6 +21,9 @@ class HabitsView extends React.Component {
 
 
     render() {
+
+        if (this.state.loading) return <div className="container">Loading ...</div>
+
         return (
             <div className="container" id="">
                 <h3>List of habits</h3>
