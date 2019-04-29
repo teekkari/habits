@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 // low db requires
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const shortid = require('shortid');
 
-const adapter = new FileSync('db.json')
-const db = low(adapter)
+const adapter = new FileSync('db.json');
+const db = low(adapter);
 
 db.defaults({ habits: [], count: 0 })
   .write()
@@ -28,7 +29,7 @@ router.post('/new', function(req, res, next) {
   const description = req.body.description;
 
   db.get('habits')
-    .push({title : title, description : description})
+    .push({id : shortid.generate(), title : title, description : description})
     .write()
 
   db.update('count', n => n + 1)
@@ -42,10 +43,13 @@ router.post('/remove', function(req, res, next) {
   const id = req.body.id;
 
   db.get('habits')
-    .find({id : id})
-    .remove()
+    .remove({id : id})
     .write()
 
+  db.update('count', n => n - 1)
+    .write()
+
+  res.send("OK");
 });
 
 module.exports = router;
