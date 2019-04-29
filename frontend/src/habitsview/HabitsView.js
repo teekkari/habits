@@ -11,21 +11,41 @@ class HabitsView extends React.Component {
     this.state = {
       habits: [],
       loading: true,
+      update: false,
     }
+
+    this.fetchHabits();
+  }
+
+  fetchHabits = () => {
+    this.setState({
+      habits: [],
+      loading: true,
+    })
 
     axios.get("http://localhost:8888/habits/list")
       .then( response => {
-        this.setState({loading : false});
-
         for (const elem of response.data) {
           this.setState({
             habits : [
               ...this.state.habits,
-              <Habit title={elem.title} description={elem.description} />
+              <Habit
+                key={elem.id}
+                id={elem.id}
+                title={elem.title}
+                description={elem.description}
+                refresh={this.refresh}
+              />
             ]
           });
         }
+        this.setState({loading : false});
       });
+  }
+
+
+  refresh = () => {
+    this.fetchHabits();
   }
 
   render() {
