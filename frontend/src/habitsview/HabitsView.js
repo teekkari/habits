@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Habit from './Habit.js';
+
 class HabitsView extends React.Component {
 
   constructor(props) {
@@ -8,21 +10,23 @@ class HabitsView extends React.Component {
 
     this.state = {
       habits: [],
+      loading: true,
     }
 
     axios.get("http://localhost:8888/habits/list")
+      .then( response => {
+        this.setState({loading : false});
 
+        for (const elem of response.data) {
+          this.setState({
+            habits : [
+              ...this.state.habits,
+              <Habit title={elem.title} description={elem.description} />
+            ]
+          });
+        }
+      });
   }
-
-  listHabits = () => {
-    let elems = [];
-    for (let habit of this.state.habits) {
-      elems += habit
-    }
-
-    return elems
-  }
-
 
   render() {
 
@@ -31,7 +35,7 @@ class HabitsView extends React.Component {
     return (
       <div className="container" id="">
         <h3>List of habits</h3>
-        {this.listHabits()}
+        {this.state.habits}
       </div>
     );
   }
