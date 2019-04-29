@@ -23,10 +23,10 @@ class Habit extends React.Component {
           <span className="habit-title">{this.state.title}</span>
           <p className="habit-description">{this.state.description}</p>
         </span>
-        <span className="habit-controls">
+        <form className="habit-controls">
           <button>complete</button><br/>
           <button>remove</button>
-        </span>
+        </form>
       </div>
     );
 

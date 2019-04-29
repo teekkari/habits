@@ -1,13 +1,13 @@
 .habit {
-  border: 1px dashed grey;
   border-radius: 10px;
+  background-color: #eeeeee;
   padding: 15px;
   margin-bottom: 5px;
 }
 
 .habit-text {
   display: inline-block;
-  max-width: 70%
+  max-width: 70%;
 }
 
 .habit-controls {

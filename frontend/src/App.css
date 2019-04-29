@@ -3,15 +3,42 @@
 }
 
 #main-window {
+  background-color: #8D94BA;
+  min-height: 100%;
+  overflow-x: hidden;
+}
 
+#main-header {
+  width: 100%;
+  padding: 1vh;
+  text-align: center;
+  color: #8D94BA;
+  background-color: #272932;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
+  box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
+  z-index: 100;
+}
+
+#main-header > h1 {
+  line-height: calc(10vh - 2vh);
+  margin: 0;
+}
+
+#main-content {
+  width: 80%;
+  margin: auto;
+  background-color: #EEEEEE;
+  overflow-y: auto;
+  clear: both;
 }
 
 #habits-view {
-  width: 50%;
   float: left;
+  width: 50%;
 }
 
-#stats-view {
-  width: 50%;
+#info-view {
   float: right;
+  width: 50%;
 }
