@@ -1,36 +1,40 @@
 import React from 'react';
+import axios from 'axios';
 
 class HabitsView extends React.Component {
 
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            habits : [],
-        }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      habits: [],
     }
 
-    listHabits = () => {
-        let elems = [];
-        for (let habit of this.state.habits) {
-            elems += habit
-        }
+    axios.get("http://localhost:8888/habits/list")
 
-        return elems
+  }
+
+  listHabits = () => {
+    let elems = [];
+    for (let habit of this.state.habits) {
+      elems += habit
     }
 
+    return elems
+  }
 
-    render() {
 
-        if (this.state.loading) return <div className="container">Loading ...</div>
+  render() {
 
-        return (
-            <div className="container" id="">
-                <h3>List of habits</h3>
-                {this.listHabits()}
-            </div>
-        );
-    }
+    if (this.state.loading) return <div className="container">Loading ...</div>
+
+    return (
+      <div className="container" id="">
+        <h3>List of habits</h3>
+        {this.listHabits()}
+      </div>
+    );
+  }
 
 }
 
