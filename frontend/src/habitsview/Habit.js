@@ -16,6 +16,7 @@ class Habit extends React.Component {
       id: _id,
       title: _title ? _title : "",
       description: _description ? _description : "",
+      isComplete: false,
     }
   }
 
@@ -26,15 +27,21 @@ class Habit extends React.Component {
     .then(() => { this.props.refresh(); })
   }
 
+  complete = () => {
+    this.setState({
+      isComplete: true,
+    });
+  }
+
   render() {
     return (
-      <div className="habit">
+      <div className={this.state.isComplete ? "habit habit-complete" : "habit"}>
         <span className="habit-text">
           <span className="habit-title">[{this.state.id}] {this.state.title}</span>
           <p className="habit-description">{this.state.description}</p>
         </span>
         <span className="habit-controls">
-          <button>complete</button><br/>
+          <button onClick={this.complete}>complete</button><br/>
           <button onClick={this.remove}>Remove</button>
         </span>
       </div>

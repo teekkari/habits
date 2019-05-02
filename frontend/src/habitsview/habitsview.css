@@ -10,6 +10,10 @@
   max-width: 70%;
 }
 
+.habit-complete {
+  background-color: green;
+}
+
 .habit-controls {
   float: right;
   padding: 5px;
