@@ -14,10 +14,6 @@ db.defaults({ habits: [], count: 0 })
 
 // end low db
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.send("working ait mate");
-});
 
 router.get('/list', function (req, res, next) {
   res.send(db.get('habits'))
