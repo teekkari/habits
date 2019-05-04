@@ -10,8 +10,8 @@
   max-width: 70%;
 }
 
-.habit-complete {
-  background-color: green;
+.habit-icon {
+  /* applied to all habit icons, exists for future support / need*/
 }
 
 .habit-controls {

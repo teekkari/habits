@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import { IconContext } from "react-icons";
+import { FaCheckCircle } from 'react-icons/fa';
+
 import './habitsview.css';
 
 class Habit extends React.Component {
@@ -40,11 +43,22 @@ class Habit extends React.Component {
     });
   }
 
+  showCompleteIcon = () => {
+    if (this.state.isComplete){
+      return (
+        <IconContext.Provider value={{color: "green"}}>
+          <span class="habit-icon"><FaCheckCircle /></span>
+        </IconContext.Provider>
+      );
+    }
+    return null;
+  }
+
   render() {
     return (
-      <div className={this.state.isComplete ? "habit habit-complete" : "habit"}>
+      <div className="habit">
         <span className="habit-text">
-          <span className="habit-title"><small>[{this.state.id}]</small> {this.state.title}</span>
+          <span className="habit-title"><small>[{this.state.id}]</small> {this.state.title} {this.showCompleteIcon()}</span>
           <p className="habit-description">{this.state.description}</p>
         </span>
         <span className="habit-controls">
