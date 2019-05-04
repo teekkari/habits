@@ -73,13 +73,13 @@ router.post('/update', function(req, res, next) {
   // update-type dispatcher
   switch (type) {
     case 'complete':
-      elem.update('isComplete', data).write();
+      elem.assign({'isComplete': data}).write();
       break;
     case 'title':
-      elem.update('title', data).write();
+      elem.assign({'title': data}).write();
       break;
     case 'description':
-      elem.update('description', data).write();
+      elem.assign({'description': data}).write();
       break;
     default:
       res.send("Update type didn't match any known types.")
