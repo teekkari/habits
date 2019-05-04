@@ -11,12 +11,13 @@ class Habit extends React.Component {
     const _id = this.props.id;
     const _title = this.props.title;
     const _description = this.props.description;
+    const _isComplete = this.props.isComplete;
 
     this.state = {
       id: _id,
       title: _title ? _title : "",
       description: _description ? _description : "",
-      isComplete: false,
+      isComplete: _isComplete ? _isComplete : false,
     }
   }
 
@@ -31,13 +32,19 @@ class Habit extends React.Component {
     this.setState({
       isComplete: true,
     });
+
+    axios.post('http://localhost:8888/habits/update', {
+      id : this.state.id,
+      type : 'complete',
+      data : true
+    });
   }
 
   render() {
     return (
       <div className={this.state.isComplete ? "habit habit-complete" : "habit"}>
         <span className="habit-text">
-          <span className="habit-title">[{this.state.id}] {this.state.title}</span>
+          <span className="habit-title"><small>[{this.state.id}]</small> {this.state.title}</span>
           <p className="habit-description">{this.state.description}</p>
         </span>
         <span className="habit-controls">

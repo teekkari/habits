@@ -36,7 +36,7 @@ class HabitsView extends React.Component {
                 id={elem.id}
                 title={elem.title}
                 description={elem.description}
-                complete={elem.isComplete}
+                isComplete={elem.isComplete}
                 refresh={this.refresh}
               />
             ]
