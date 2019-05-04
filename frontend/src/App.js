@@ -12,6 +12,10 @@ class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    document.title = "HABIT TRACKER";
+  }
+
   update = () => {
     this.setState({updated: true});
     this.setState({updated: false});
