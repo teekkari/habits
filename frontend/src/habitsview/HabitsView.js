@@ -13,7 +13,9 @@ class HabitsView extends React.Component {
       loading: true,
       update: false,
     }
+  }
 
+  componentDidMount () {
     this.fetchHabits();
   }
 
@@ -34,6 +36,7 @@ class HabitsView extends React.Component {
                 id={elem.id}
                 title={elem.title}
                 description={elem.description}
+                complete={elem.isComplete}
                 refresh={this.refresh}
               />
             ]
@@ -48,12 +51,22 @@ class HabitsView extends React.Component {
     this.fetchHabits();
   }
 
+
+  // helper / debug function, to be REMOVED in the future
+  dumpdb = () => {
+    axios.get("http://localhost:8888/habits/list")
+      .then( response => {
+        console.log(response.data);
+      });
+  }
+
   render() {
 
-    if (this.state.loading) return <div className="container">Loading ...</div>
+    if (this.state.loading) return <div className="container"><h3>List of habits (Loading ...)</h3></div>
 
     return (
       <div className="container" id="">
+        <button onClick={this.dumpdb}>DumpDB</button>
         <h3>List of habits</h3>
         {this.state.habits}
       </div>
