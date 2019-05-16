@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const moment = require('moment');
+
 // low db requires
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -32,6 +34,7 @@ router.post('/new', function(req, res, next) {
         title : title,
         description : description,
         isComplete : false,
+        dateComplete : null,
       }
     ).write()
 
@@ -73,7 +76,7 @@ router.post('/update', function(req, res, next) {
   // update-type dispatcher
   switch (type) {
     case 'complete':
-      elem.assign({'isComplete': data}).write();
+      elem.assign({'isComplete': data, 'dateComplete': moment().format('DD-MM-YY')}).write();
       break;
     case 'title':
       elem.assign({'title': data}).write();
