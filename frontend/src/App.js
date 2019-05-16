@@ -16,6 +16,7 @@ class App extends React.Component {
     document.title = "HABIT TRACKER";
   }
 
+  // hacky update func. so sibling component (NewHabitForm) can update HabitsView
   update = () => {
     this.setState({updated: true});
     this.setState({updated: false});

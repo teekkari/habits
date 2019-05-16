@@ -24,7 +24,10 @@ class NewHabitForm extends React.Component {
       description: this.state.description,
     })
     .then(() => {
-      console.log("added new habit")
+      this.setState({
+        title: "",
+        description: "",
+      });
       this.props.update();
     })
   }
@@ -34,9 +37,9 @@ class NewHabitForm extends React.Component {
       <div className="container">
         <h3>Add new habit here</h3>
         <label>Title</label> <br />
-        <input type="text" name="title" onChange={this.handleChange}/><br />
+        <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/><br />
         <label>Description</label> <br />
-        <input type="text" name="description" onChange={this.handleChange}/><br /><br />
+        <input type="text" name="description" onChange={this.handleChange} value={this.state.description} /><br /><br />
 
         <input type="submit" value="ADD NEW" onClick={this.sendRequest}/>
       </div>
