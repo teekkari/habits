@@ -92,5 +92,10 @@ router.post('/update', function(req, res, next) {
   res.send("OK");
 });
 
+router.get('/reset', function(req, res, next) {
+  db.get('habits').each(n => { n.isComplete = false }).write();
+  res.send("OK");
+});
+
 
 module.exports = router;
