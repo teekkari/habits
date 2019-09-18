@@ -3,7 +3,8 @@ html, body {
 }
 
 body {
-  background-color: #8D94BA;
+  background-color: #F8F8FF;
+  height: 100vh;
 }
 
 .container {
@@ -21,9 +22,7 @@ body {
   text-align: center;
   color: #EEEFFF;
   background-color: #272932;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
-  box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
+  letter-spacing: 2px;
   z-index: 100;
 }
 
@@ -35,24 +34,20 @@ body {
 #main-content {
   width: 60%;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
   padding: 0px 10px 20px 10px;
-  background-color: #EEEFFF;
+  background-color: #fff;
   overflow-y: auto;
   clear: both;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
-  box-shadow: 0px 3px 10px 0px rgba(39,41,50,1);
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(39,41,50,0.3);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(39,41,50,0.3);
+  box-shadow: 0px 3px 10px 0px rgba(39,41,50,0.3);
 }
 
 #habits-view {
-  float: left;
-  width: 70%;
+  /* todo */
 }
 
 #info-view {
-  float: right;
-  width: 30%;
+  /* todo */
 }

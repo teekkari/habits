@@ -26,14 +26,14 @@ class App extends React.Component {
     return (
       <div id="main-window">
         <header id="main-header">
-          <h1>WELCOME TO HABIT TRACKER TM 2019</h1>
+          <h1>Task Stack</h1>
         </header>
         <main id="main-content">
-          <div id="habits-view">
-            <HabitsView key={this.state.updated} />
-          </div>
           <div id="info-view">
             <NewHabitForm update={this.update} />
+          </div>
+          <div id="habits-view">
+            <HabitsView key={this.state.updated} />
           </div>
         </main>
       </div>

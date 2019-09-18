@@ -19,6 +19,12 @@ class NewHabitForm extends React.Component {
   }
 
   sendRequest = () => {
+
+    if (this.state.title === '') {
+      document.getElementById('new-habit-title').style.border = "1px solid red";
+      return
+    }
+
     axios.post('http://localhost:8888/habits/new', {
       title: this.state.title,
       description: this.state.description,
@@ -34,10 +40,10 @@ class NewHabitForm extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h3>Add new habit here</h3>
-        <label>Title</label> <br />
-        <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/><br />
+      <div className="container" id="new-habit-form">
+        <h3>Add new task</h3>
+        <label>Title *</label> <br />
+        <input type="text" name="title" id="new-habit-title" onChange={this.handleChange} value={this.state.title}/><br />
         <label>Description</label> <br />
         <input type="text" name="description" onChange={this.handleChange} value={this.state.description} /><br /><br />
 
