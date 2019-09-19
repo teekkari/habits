@@ -43,6 +43,20 @@ class Habit extends React.Component {
     });
   }
 
+
+  handleCompleteCheckbox = () => {
+
+    axios.post('http://localhost:8888/habits/update', {
+      id : this.state.id,
+      type : 'complete',
+      data : !this.state.isComplete
+    });
+
+    this.setState({
+      isComplete: !this.state.isComplete
+    });
+  }
+
   showCompleteIcon = () => {
     if (this.state.isComplete){
       return (
@@ -62,6 +76,7 @@ class Habit extends React.Component {
           <p className="habit-description">{this.state.description}</p>
         </span>
         <span className="habit-controls">
+          <input type="checkbox" checked={this.state.isComplete} onChange={this.handleCompleteCheckbox}/>
           <button onClick={this.complete}>complete</button><br/>
           <button onClick={this.remove}>Remove</button>
         </span>

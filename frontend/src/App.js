@@ -1,6 +1,6 @@
 import React from 'react';
 import HabitsView from './habitsview/HabitsView.js';
-import NewHabitForm from './habitsview/NewForm.js';
+import NewHabitForm from './newform/NewForm.js';
 import './App.css';
 
 class App extends React.Component {
