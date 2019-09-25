@@ -65,10 +65,12 @@ router.post('/update', function(req, res, next) {
   const data = req.body.data;
 
   // if some POST parameters missing, abort
-  if ( !(id && type && data) ) { 
+  if ( typeof id === 'undefined' || typeof type === 'undefined' || typeof data === 'undefined') { 
     res.send("Missing arguments");
     return;
   }
+
+  console.log(data);
 
   // get element by id
   const elem = db.get('habits').find({id : id})
@@ -76,7 +78,9 @@ router.post('/update', function(req, res, next) {
   // update-type dispatcher
   switch (type) {
     case 'complete':
-      elem.assign({'isComplete': data, 'dateComplete': moment().format('DD-MM-YY')}).write();
+      // , 'dateComplete': moment().format('DD-MM-YY')}
+      // ^ taken out for the time being.
+      elem.assign({'isComplete': data}).write();
       break;
     case 'title':
       elem.assign({'title': data}).write();

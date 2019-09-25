@@ -77,7 +77,6 @@ class Habit extends React.Component {
         </span>
         <span className="habit-controls">
           <input type="checkbox" checked={this.state.isComplete} onChange={this.handleCompleteCheckbox}/>
-          <button onClick={this.complete}>complete</button><br/>
           <button onClick={this.remove}>Remove</button>
         </span>
       </div>
