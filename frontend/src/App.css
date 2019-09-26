@@ -20,8 +20,8 @@ body {
   width: 100%;
   padding: 2vh;
   text-align: center;
-  color: #EEEFFF;
-  background-color: #272932;
+  color: #6c6f92;
+  background-color: #F8F8FF;
   letter-spacing: 2px;
   z-index: 100;
 }
@@ -33,9 +33,10 @@ body {
 }
 
 #main-content {
-  width: 60%;
+  width: 92%;
+  max-width: 800px;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 0px 10px 20px 10px;
   background-color: #fff;
   overflow-y: auto;
