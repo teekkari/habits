@@ -62,12 +62,12 @@ class HabitsView extends React.Component {
 
   render() {
 
-    if (this.state.loading) return <div className="container"><h3>List of habits (Loading ...)</h3></div>
+    if (this.state.loading) return <div className="container"><h3>List of tasks (Loading ...)</h3></div>
 
     return (
       <div className="container" id="">
-        <button onClick={this.dumpdb}>DumpDB</button>
-        <h3>List of habits</h3>
+        <button className="hide" onClick={this.dumpdb}>DumpDB</button>
+        <h3>List of tasks</h3>
         {this.state.habits}
       </div>
     );

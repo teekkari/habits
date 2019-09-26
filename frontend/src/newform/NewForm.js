@@ -24,7 +24,7 @@ class NewHabitForm extends React.Component {
   sendRequest = (event) => {
 
     if (this.state.title === '') {
-      document.getElementById('new-habit-title').className = 'invalid-field';
+      document.getElementById('new-habit-title').className = 'invalid';
       return
     }
 
@@ -45,12 +45,17 @@ class NewHabitForm extends React.Component {
     return (
       <div className="container" id="new-habit-form">
         <h3>Add new task</h3>
-        <label>Title *</label> <br />
-        <input type="text" name="title" id="new-habit-title" onChange={this.handleChange} value={this.state.title}/><br />
-        <label>Description</label> <br />
-        <input type="text" name="description" onChange={this.handleChange} value={this.state.description} /><br /><br />
+        <div className="input-field">
+          <input placeholder="Do dishes..." type="text" name="title" id="new-habit-title" onChange={this.handleChange} value={this.state.title}/>
+          <label className="active" htmlFor="new-habit-title">Title</label>
+        </div>
 
-        <input type="submit" value="ADD NEW" onClick={this.sendRequest}/>
+        <div className="input-field">
+          <input placeholder="Do them before wife gets home at 7pm..." type="text" name="description" id="new-habit-description" onChange={this.handleChange} value={this.state.description} />
+          <label className="active" htmlFor="new-habit-description">Description</label>
+        </div>
+
+        <button className="btn-large" style={{width: "100%"}}onClick={this.sendRequest}>ADD NEW</button>
       </div>
     );
   }

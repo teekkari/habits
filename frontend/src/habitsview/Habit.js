@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { IconContext } from "react-icons";
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTrashAlt } from 'react-icons/fa';
 
 import './habitsview.css';
 
@@ -57,27 +57,19 @@ class Habit extends React.Component {
     });
   }
 
-  showCompleteIcon = () => {
-    if (this.state.isComplete){
-      return (
-        <IconContext.Provider value={{color: "green"}}>
-          <span className="habit-icon"><FaCheckCircle /></span>
-        </IconContext.Provider>
-      );
-    }
-    return null;
-  }
-
   render() {
     return (
       <div className="habit">
         <span className="habit-text">
-          <span className="habit-title">{this.state.title} {this.showCompleteIcon()}</span>
+          <span className="habit-title">{this.state.title}</span>
           <p className="habit-description">{this.state.description}</p>
         </span>
         <span className="habit-controls">
-          <input type="checkbox" checked={this.state.isComplete} onChange={this.handleCompleteCheckbox}/>
-          <button onClick={this.remove}>Remove</button>
+          <label>
+            <input type="checkbox" className="filled-in" checked={this.state.isComplete} onChange={this.handleCompleteCheckbox}/>
+            <span></span>
+          </label>
+          <span className="habit-icon-remove" onClick={this.remove}><FaTrashAlt /></span>
         </span>
       </div>
     );
