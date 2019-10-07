@@ -9,6 +9,17 @@ Task Stack is a tool I've been developing for myself to help with procrastinatio
 ![UI Screenshot](https://i.imgur.com/vO5Aaov.png)
 *Screenshot of the UI*
 
+## Usage
+
+1. Clone the repo
+2. Start backend (Runs on localhost:8888)
+    1. Run ```npm install``` in /backend/ folder
+    2. Run ```npm start``` in /backend/ folder
+3. Start frontend (Runs on localhost:3000)
+    1. Run ```npm install``` in /backend/ folder
+    2. Run ```npm start``` in /backend/ folder
+4. Done!
+
 ## Technologies
 
 ### Frontend
