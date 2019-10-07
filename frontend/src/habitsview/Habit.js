@@ -69,7 +69,7 @@ class Habit extends React.Component {
             <input type="checkbox" className="filled-in" checked={this.state.isComplete} onChange={this.handleCompleteCheckbox}/>
             <span></span>
           </label>
-          <span className="habit-icon-remove" onClick={this.remove}><FaTrashAlt /></span>
+          <span className="habit-icon habit-icon-remove" onClick={this.remove}><FaTrashAlt /></span>
         </span>
       </div>
     );

@@ -14,7 +14,12 @@
 }
 
 .habit-icon {
-  /* applied to all habit icons, exists for future support / need */
+  cursor: pointer;
+}
+
+.habit-icon-remove {
+  position: relative;
+  top: -7px;
 }
 
 .habit-controls {
